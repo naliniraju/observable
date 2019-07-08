@@ -7,59 +7,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<script type="text/javascript">
-    // Set global variable
-    var watchID;
-    function showPosition(){
-        if(navigator.geolocation){
-            watchID = navigator.geolocation.watchPosition(successCallback);
-        } else{
-            alert("Sorry, your browser does not support HTML5 geolocation.");
-        }
-    }
-    function successCallback(position){
-        toggleWatchBtn.innerHTML = "Stop Watching";
-        
-        // Check position has been changed or not before doing anything
-        if(prevLat != position.coords.latitude || prevLong != position.coords.longitude){
-            
-            // Set previous location
-            var prevLat = position.coords.latitude;
-            var prevLong = position.coords.longitude;
-            
-            // Get current position
-            var positionInfo = "Your current position is (" +prevLat+','+prevLong+'<br>'+ "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
-            document.getElementById("result").innerHTML = positionInfo;
-            
-        }
-        
-    }
-    function startWatch(){
-        var result = document.getElementById("result");
-        
-        var toggleWatchBtn = document.getElementById("toggleWatchBtn");
-        
-        toggleWatchBtn.onclick = function(){
-            if(watchID){
-                toggleWatchBtn.innerHTML = "Start Watching";
-                navigator.geolocation.clearWatch(watchID);
-                watchID = false;
-            }
-            else{
-                toggleWatchBtn.innerHTML = "Aquiring Geo Location...";
-                showPosition();
-            }
-        }
-    }
-    
-    // Initialise the whole system (above)
-    window.onload = startWatch;
-</script>
-</head>
+<link rel="stylesheet" href="styles.88defab17268236f925b.css"></head>
 <body>
-    <button type="button" id="toggleWatchBtn">Start Watching</button>
-    <div id="result">
-        <!--Position information will be inserted here-->
-    </div>   
-</body>
-</html>                            
+  <app-root></app-root>
+<script type="text/javascript" src="runtime.26209474bfa8dc87a77c.js"></script><script type="text/javascript" src="polyfills.ac95705c8ecb4d230bfb.js"></script><script type="text/javascript" src="scripts.1922a19f749bf3ed3a42.js"></script><script type="text/javascript" src="main.9509063eb7ce743394ee.js"></script></body>
+</html>
